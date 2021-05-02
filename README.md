@@ -1,5 +1,5 @@
 # cowid-vaccination-slot-tracker-india
-Service to track COVID-19 vaccines availibility in India send SMS using Twilio messaging API (Trial Account).
+Service to track COVID-19 vaccine availability in India and sending notifications using SMS via Twilio messaging API (Trial Account).
 
 # Requirements
 - Node 14
