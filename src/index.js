@@ -1,4 +1,7 @@
+require('../config');
 const axios = require('axios');
+const { sendSMS } = require('./utils/sendSMS');
+const { getDate } = require('./utils/getDate');
 
 const getVaccinationCalendarByPin = async (pinCode, date) => {
   try {
@@ -11,11 +14,11 @@ const getVaccinationCalendarByPin = async (pinCode, date) => {
   }
 };
 
-const getSessionsPerCenter = (centerVaccinationCalendarPerCenter) => {
+const getSessionsPerCenter = (vaccinationCalendarPerCenter) => {
   const availableSessionsPerCenter = {};
-  for (let i = 0; i < centerVaccinationCalendarPerCenter.length; i += 1) {
-    if (centerVaccinationCalendarPerCenter[i].available_capacity > 0) {
-      availableSessionsPerCenter[centerVaccinationCalendarPerCenter[i].date] = centerVaccinationCalendarPerCenter[i].available_capacity;
+  for (let i = 0; i < vaccinationCalendarPerCenter.length; i += 1) {
+    if (vaccinationCalendarPerCenter[i].available_capacity > 0) {
+      availableSessionsPerCenter[vaccinationCalendarPerCenter[i].date] = vaccinationCalendarPerCenter[i].available_capacity;
     }
   }
   return availableSessionsPerCenter;
@@ -29,14 +32,30 @@ const getSessionsForAllCenters = (vaccinationCalendar) => {
   return availableSessions;
 };
 
-async function getAvailableSessions(pinCode, date) {
-  const vaccinationCalendar = await getVaccinationCalendarByPin(pinCode, date);
-  // eslint-disable-next-line no-prototype-builtins
-  if (vaccinationCalendar.hasOwnProperty('err')) {
-    return 'Unable to fetch sessions';
+function formatSMS(body, pinCode, date) {
+  const centers = Object.keys(body);
+  let message = '';
+  message += 'Vaccination Sessions for the week';
+  message += `Pincode: ${pinCode}\n From Date: ${date}\n`;
+  for (let i = 0; i < centers.length; i += 1) {
+    const availableSessions = Object.keys(body[centers[i]]);
+    if (availableSessions.length > 0) {
+      message += '\n';
+      message += `${centers[i]}: `;
+      message += '\n';
+      for (let j = 0; j < availableSessions.length; j += 1) {
+        message += `${availableSessions[j]}: ${body[centers[i]][availableSessions[j]]}\n`;
+      }
+    }
   }
+  return message;
+}
+async function getAvailableSessions(pinCode) {
+  const date = getDate();
+  const vaccinationCalendar = await getVaccinationCalendarByPin(pinCode, date);
   const availableSessions = getSessionsForAllCenters(vaccinationCalendar);
-  console.log(availableSessions);
+  const message = formatSMS(availableSessions, pinCode, date);
+  await sendSMS(message, pinCode, date);
 }
 
-getAvailableSessions(process.argv[2], process.argv[3]);
+getAvailableSessions(process.argv[2]);

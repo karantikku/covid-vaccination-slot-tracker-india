@@ -1,2 +1,6 @@
 # cowid-vaccination-slot-notifier-india
-Get an SMS as soon as a vaccination slot is available in your area.
+Service to track COVID-19 vaccines availibility in India send SMS using Twilio messaging API.
+
+# Usage
+
+This service fetches the 
