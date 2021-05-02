@@ -1,4 +1,4 @@
-# cowid-vaccination-slot-tracker-india
+# covid-vaccination-slot-tracker-india
 Service to track COVID-19 vaccine availability in India.
 
 # Requirements
