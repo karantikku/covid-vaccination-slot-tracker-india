@@ -25,8 +25,8 @@ References: https://www.twilio.com/docs/usage/tutorials/how-to-use-your-free-tri
 
 | Name   |      Description      |  Remarks |
 |:---------|:-------------:|:-----|
-| TWILIO_ACCOUNT_SID |  TWILIO ACCOUNT SID (Available in Twilio Dashboard) | |
-|TWILIO_AUTH_TOKEN |    TWILIO AUTH TOKEN  (Available in Twilio Dashboard)   |   |
+| TWILIO_ACCOUNT_SID |  TWILIO ACCOUNT SID (Available on Twilio Dashboard) | |
+|TWILIO_AUTH_TOKEN |    TWILIO AUTH TOKEN  (Available on Twilio Dashboard)   |   |
 |RECIPIENT_PHONE_NUMBER | Personal mobile number used for verificiation while creating an account with Twilio |    When you signed up for your trial account, you verified your personal phone number. You can see your list of verified phone numbers on the Verified Caller IDs page. You must verify any non-Twilio phone numbers you wish to send SMS messages or MMS messages, or place phone calls to while in trial mode. This is an extra security measure for trial accounts that we remove once you upgrade your account. You may verify as many phone numbers as you like. |
 | FROM_PHONE_NUMBER | Twilio phone number — a phone number purchased through Twilio — to send messages or make phone calls using Twilio. | https://www.twilio.com/docs/usage/tutorials/how-to-use-your-free-trial-account#get-your-first-twilio-phone-number |
 | REFRESH_WINDOW | Specifies rate at which tracker quries COWIN API  |    Rate in **minutes**. Please do not abuse this API endpoint as it is very critical. Avoid sending requests to the API Endpoint every few minutes. Ideally, set it as 60 minutes. |
