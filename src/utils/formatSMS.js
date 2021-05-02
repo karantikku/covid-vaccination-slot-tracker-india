@@ -2,7 +2,7 @@ module.exports = {
   formatSMS: (body, pinCode, date) => {
     const centers = Object.keys(body);
     let message = '';
-    message += 'Vaccination Sessions for the week';
+    message += 'Vaccination Sessions for the week \n';
     message += `Pincode: ${pinCode}\n From Date: ${date}\n`;
     for (let i = 0; i < centers.length; i += 1) {
       const availableSessions = Object.keys(body[centers[i]]);

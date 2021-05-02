@@ -29,6 +29,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
+    "node-cron": "^3.0.0",
     "twilio": "^3.61.0"
   },
   "devDependencies": {
