@@ -33,6 +33,11 @@ References: https://www.twilio.com/docs/usage/tutorials/how-to-use-your-free-tri
 | PINCODE | Area Pincode |    |
 | AGE | Age of the beneficiary  |   |
 
+5. Run the Service
+```
+npm run start
+```
+
 # Important
 1. Please do not abuse COWIN API endpoints as it is very critical. Avoid sending requests to the API Endpoint every few minutes. 
 2. Be mindful of the Twilio SMS API usage and keep tracking the API Usage costs.
