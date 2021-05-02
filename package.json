@@ -1,0 +1,37 @@
+{
+  "name": "covid-vaccination-slot-notifier-india",
+  "version": "1.0.0",
+  "description": "Get notified as soon as a slot is available in your area (pincode).",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./",
+    "lint-fix": "eslint ./ --fix",
+    "start": "node src/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karantikku/covid-vaccination-slot-notifier-india.git"
+  },
+  "keywords": [
+    "covid-19",
+    "covid",
+    "vaccination",
+    "vaccine",
+    "india"
+  ],
+  "author": "Karan Tikku <karantikku7@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karantikku/covid-vaccination-slot-notifier-india/issues"
+  },
+  "homepage": "https://github.com/karantikku/covid-vaccination-slot-notifier-india#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}
